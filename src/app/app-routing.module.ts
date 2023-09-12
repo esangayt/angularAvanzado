@@ -5,14 +5,20 @@ import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { Grafica1Component } from './pages/grafica1/grafica1.component';
 import { NopagefoundComponent } from './pages/nopagefound/nopagefound.component';
+import { PagesComponent } from './pages/pages.component';
 
 const routes: Routes = [
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'login', component: LoginComponent, },
+  { path: '', component: PagesComponent,
+    children: [
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'grafica1', component: Grafica1Component, },
+
+      { path: '', redirectTo: '/dashboard', pathMatch: 'full', },
+    ]
+  },
   { path: 'register', component: RegisterComponent, },
-  { path: 'grafica1', component: Grafica1Component, },
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full', },
-  { path: '**', component: NopagefoundComponent, },
+  { path: 'login', component: LoginComponent, },
+  { path: '**', component: NopagefoundComponent, }
 ];
 
 @NgModule({
