@@ -12,7 +12,7 @@ const routes: Routes = [
     path: 'dashboard',
     loadChildren: () => import('./pages/page.module').then(module => module.PageModule)
   },
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: '**', component: NopagefoundComponent },
 ];
 

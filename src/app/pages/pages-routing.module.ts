@@ -8,7 +8,7 @@ import {AccountSettingsComponent} from "@pages/account-settings/account-settings
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'dashboard',
     component: PagesComponent,
     children: [
       { path: '', component: DashboardComponent },
