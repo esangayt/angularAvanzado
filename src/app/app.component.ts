@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'avanzado';
+  private linkTheme = document.querySelector('#theme')
+
+  constructor() {
+    const url = localStorage.getItem('theme') || `./assets/css/colors/purple.css`
+
+    this.linkTheme!.setAttribute('href', url)
+  }
 }
