@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {SettingsService} from "./services/settings.service";
 
 @Component({
   selector: 'app-root',
@@ -7,11 +8,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'avanzado';
-  private linkTheme = document.querySelector('#theme')
-
-  constructor() {
-    const url = localStorage.getItem('theme') || `./assets/css/colors/purple.css`
-
-    this.linkTheme!.setAttribute('href', url)
+  constructor(private settings: SettingsService) {
   }
 }
