@@ -9,6 +9,8 @@ import {PagesRoutingModule} from "@pages/pages-routing.module";
 import {ComponentsModule} from "../components/components.module";
 import {FormsModule} from "@angular/forms";
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
+import { PromisesComponent } from './promises/promises.component';
+import { RxjsComponent } from './rxjs/rxjs.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
     ProgressComponent,
     Grafica1Component,
     PagesComponent,
-    AccountSettingsComponent
+    AccountSettingsComponent,
+    PromisesComponent,
+    RxjsComponent
   ],
   imports: [
     CommonModule,

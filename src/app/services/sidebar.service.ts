@@ -23,6 +23,8 @@ export class SidebarService {
          { subTitle: 'Main', url: '/' },
          { subTitle: 'ProgressBar', url: 'progress' },
          { subTitle: 'Gráficas', url: 'grafica1' },
+         { subTitle: 'Promises', url: 'promises' },
+         { subTitle: 'RXJS', url: 'rxjs' },
       ]
      }
      ]
