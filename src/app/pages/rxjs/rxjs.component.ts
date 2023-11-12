@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import {Observable} from "rxjs";
-import {logMessages} from "@angular-devkit/build-angular/src/tools/esbuild/utils";
+import {Observable, retry} from "rxjs";
 
 @Component({
   selector: 'app-rxjs',
@@ -9,34 +8,33 @@ import {logMessages} from "@angular-devkit/build-angular/src/tools/esbuild/utils
 })
 export class RxjsComponent {
   constructor() {
-    this.basicRXJS()
+    this.retornaObservable().pipe(
+      retry(1)
+    ).subscribe(
+      valor => console.log('Subs:', valor ),
+      error => console.warn('Error:', error ),
+      () => console.info('Obs terminado')
+    );
   }
 
-  basicRXJS(){
-   const observable = new Observable(observer=>{
-     let i = 0
+  retornaObservable(): Observable<number> {
+    let i = -1;
 
-     const inter =
-       setInterval(()=>{
-       i++
-       observer.next(i)
+    return new Observable<number>( observer => {
+      const intervalo = setInterval( () => {
+        i++;
+        observer.next(i);
 
-       if (i === 6){
-         clearInterval(inter)
-         observer.complete()
-       }
+        if ( i === 8 ) {
+          clearInterval( intervalo );
+          observer.complete();
+        }
 
-       if (i == 2){
-         observer.error("ya estás en 2")
-       }
-
-     }, 1000)
-   })
-
-   observable.subscribe(
-     (value) => console.log(value),
-     (error) => console.warn(error),
-     () => console.log("al finalizar en subscriber"),
-   )
+        if ( i === 2 ) {
+          clearInterval(intervalo) // Si no se hace eso 2 veces el intervalo manipula i
+          observer.error('i llego al valor de 2');
+        }
+      }, 1000 )
+    });
   }
 }
