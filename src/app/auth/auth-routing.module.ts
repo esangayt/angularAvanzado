@@ -7,10 +7,11 @@ const routes: Routes = [
   {
     path: '',
     children: [
+      { path: '', redirectTo: 'login', pathMatch: 'full'},
       { path: 'register', component: RegisterComponent },
       { path: 'login', component: LoginComponent },
     ],
-  },
+  }
 ];
 
 @NgModule({

@@ -11,7 +11,7 @@
                     <li><a href="javascript:void()">My Balance</a></li>
                     <li><a href="javascript:void()">Inbox</a></li>
                     <li><a [routerLink]="'settings'">Account Setting</a></li>
-                    <li><a href="javascript:void()">Logout</a></li>
+                    <li><a [routerLink]="'/auth'">Logout</a></li>
                 </ul>
             </li>
             <li class="nav-devider"></li>
@@ -24,8 +24,10 @@
                   <span class="label label-rouded label-themecolor pull-right">4</span>
                 </span>
               </a>
-                <ul aria-expanded="false" class="collapse"  *ngFor="let subMenuItem of item.subItems">
-                    <li><a [routerLink]="subMenuItem.url">{{subMenuItem.subTitle}}</a></li>
+                <ul aria-expanded="true" class="collapse"  >
+                    <li *ngFor="let subMenuItem of item.subItems">
+                      <a [routerLink]="subMenuItem.url">{{subMenuItem.subTitle}}</a>
+                    </li>
                 </ul>
             </li>
         </ul>
