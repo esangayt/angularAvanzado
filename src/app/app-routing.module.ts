@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { NopagefoundComponent } from './pages/nopagefound/nopagefound.component';
+import { NopagefoundComponent } from '@pages/nopagefound/nopagefound.component';
 import { PagesRoutingModule } from '@pages/pages-routing.module';
 
 const routes: Routes = [
@@ -12,7 +12,7 @@ const routes: Routes = [
     path: 'dashboard',
     loadChildren: () => import('./pages/page.module').then(module => module.PageModule)
   },
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: '**', component: NopagefoundComponent },
 ];
 

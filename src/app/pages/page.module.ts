@@ -8,13 +8,15 @@ import { SharedModule } from '@shared/shared.module';
 import {PagesRoutingModule} from "@pages/pages-routing.module";
 import {ComponentsModule} from "../components/components.module";
 import {FormsModule} from "@angular/forms";
+import { AccountSettingsComponent } from './account-settings/account-settings.component';
 
 @NgModule({
   declarations: [
     DashboardComponent,
     ProgressComponent,
     Grafica1Component,
-    PagesComponent
+    PagesComponent,
+    AccountSettingsComponent
   ],
   imports: [
     CommonModule,
