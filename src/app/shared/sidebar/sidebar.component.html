@@ -21,12 +21,15 @@
                 <i class="mdi mdi-gauge"></i>
                 <span class="hide-menu">
                     {{item.title}}
-                  <span class="label label-rouded label-themecolor pull-right">4</span>
+                  <span class="label label-rouded label-themecolor pull-right">{{item.subItems.length}}</span>
                 </span>
               </a>
                 <ul aria-expanded="true" class="collapse"  >
                     <li *ngFor="let subMenuItem of item.subItems">
-                      <a [routerLink]="subMenuItem.url">{{subMenuItem.subTitle}}</a>
+                      <a [routerLink]="subMenuItem.url"
+                          routerLinkActive="active"
+                          [routerLinkActiveOptions]="{exact: true}"
+                      >{{subMenuItem.subTitle}}</a>
                     </li>
                 </ul>
             </li>
